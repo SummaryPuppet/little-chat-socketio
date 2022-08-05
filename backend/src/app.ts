@@ -6,7 +6,7 @@ const server = http.createServer(app);
 import dotenv from "dotenv";
 dotenv.config();
 
-app.use(express.static("public"));
+app.use(express.static("../../frontend/dist"));
 
 app.get("/", (_req, res) => {
   res.send("No pages");

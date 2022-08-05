@@ -9,7 +9,7 @@ const http_1 = __importDefault(require("http"));
 const server = http_1.default.createServer(app);
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-app.use(express_1.default.static("public"));
+app.use(express_1.default.static("../../frontend/dist"));
 app.get("/", (_req, res) => {
     res.send("No pages");
 });

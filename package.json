@@ -1,0 +1,23 @@
+{
+  "name": "socketio-summarypuppet",
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": ["frontend", "backend"],
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start --workspace=backend",
+    "build": "npm run build --workspace=frontend && npm run tsc --workspace=backend",
+    "dev:backend": "npm run build && npm run dev --workspace=backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SummaryPuppet/little-chat-socketio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SummaryPuppet/little-chat-socketio/issues"
+  },
+  "homepage": "https://github.com/SummaryPuppet/little-chat-socketio#readme"
+}
