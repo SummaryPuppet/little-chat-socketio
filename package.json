@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "workspaces": ["frontend", "backend"],
+  "engines": {
+    "npm": "8.16.0"
+  },
   "main": "index.js",
   "scripts": {
     "start": "npm run start --workspace=backend",
