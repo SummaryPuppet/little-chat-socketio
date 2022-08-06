@@ -4,6 +4,7 @@ import { SocketContextProvider } from "./context/SocketProvider";
 import ChatPage from "./pages/Chat";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import CreateRoomForm from "./pages/CreateRoomForm";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/chat" element={<ChatPage />} />
+          <Route path="/create-room" element={<CreateRoomForm />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

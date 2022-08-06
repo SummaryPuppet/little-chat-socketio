@@ -13,4 +13,12 @@ app.get("/chat", (_req, res) => {
   res.redirect("/");
 });
 
+app.use((_req, res, next) => {
+  if (res.status(404)) {
+    res.redirect("/");
+  } else {
+    next();
+  }
+});
+
 export default server;

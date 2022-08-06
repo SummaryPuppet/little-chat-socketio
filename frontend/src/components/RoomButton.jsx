@@ -1,17 +1,17 @@
 import { useSocket } from "../context/SocketProvider";
 
 function RoomButton({ roomName, roomId }) {
-  const { joinRoom } = useSocket();
+  const { joinRoom, roomSelected } = useSocket();
 
   const handleClick = (roomName) => {
     joinRoom(roomName);
   };
 
-  if (roomName == "Default Room" && roomId == 1) {
+  if (roomName == roomSelected.name && roomId == roomSelected.id) {
     return (
       <button
         onClick={() => handleClick(roomName)}
-        className="lg:w-full px-4 py-4 lg:px-0 py-2 bg-red-300 rounded-md"
+        className="lg:w-full px-4 py-4 lg:px-0 py-2 bg-red-500 rounded-md"
       >
         {roomName}
       </button>

@@ -11,9 +11,9 @@ export const useSocket = () => {
   return context;
 };
 
-// const URL = import.meta.env.VITE_SOCKETIO_URL || "/";
-// const socket = io(URL);
-const socket = io("/")
+const URL = import.meta.env.VITE_SOCKETIO_URL || "/";
+const socket = io(URL);
+// const socket = io("/")
 
 export const SocketContextProvider = ({ children }) => {
   const [isConnected, setIsConnected] = useState(socket.connected);
@@ -21,7 +21,7 @@ export const SocketContextProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState("");
   const [rooms, setRooms] = useState([]);
-  const [roomSelected, setRoomSelected] = useState("")
+  const [roomSelected, setRoomSelected] = useState({})
 
   const getDate = () => {
     const day = new Date();
@@ -71,11 +71,22 @@ export const SocketContextProvider = ({ children }) => {
   const recibeRooms = () => {
     socket.on("ServerAllRooms", (rooms) => {
       setRooms(rooms);
+      setRoomSelected(rooms[0])
     });
   };
 
   const joinRoom = (roomName) =>{
+    const roo = rooms.find(room => room.name == roomName)
+    setRoomSelected(roo)
+
     socket.emit("ClientJoinRoom", roomName, user)
+  }
+
+  const resetAll = () => {
+    setMsgs([])
+    setUsers([]) 
+    setUser("")
+    setRoomSelected({})
   }
 
   useEffect(() => {
@@ -114,7 +125,9 @@ export const SocketContextProvider = ({ children }) => {
         user, 
         signIn, 
         rooms,
-        joinRoom
+        joinRoom,
+        roomSelected,
+        resetAll
       }}
     >
       {children}

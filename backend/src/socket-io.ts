@@ -1,5 +1,6 @@
 import { Server } from "socket.io";
 import server from "./app";
+import {corsSocket} from "./config";
 import { serverSendMsgs } from "./services/messagesServices";
 import { joinRoom, newRoom } from "./services/roomsServices";
 import { deleteUser } from "./services/usersServices";
@@ -13,13 +14,7 @@ import {
 } from "./types";
 
 const io = new Server<ClientToServerEvents, ServerToClientEvents, SocketData>(
-  server,
-  {
-    cors: {
-      origin: "*",
-      methods: ["GET", "POST"],
-    },
-  }
+  server, corsSocket
 );
 
 let users: User[] = [];
