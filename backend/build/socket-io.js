@@ -5,15 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const socket_io_1 = require("socket.io");
 const app_1 = __importDefault(require("./app"));
+const config_1 = require("./config");
 const messagesServices_1 = require("./services/messagesServices");
 const roomsServices_1 = require("./services/roomsServices");
 const usersServices_1 = require("./services/usersServices");
-const io = new socket_io_1.Server(app_1.default, {
-    cors: {
-        origin: "*",
-        methods: ["GET", "POST"],
-    },
-});
+const io = new socket_io_1.Server(app_1.default, config_1.corsSocket);
 let users = [];
 let msgs = [];
 let rooms = [

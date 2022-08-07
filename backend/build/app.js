@@ -9,8 +9,17 @@ const http_1 = __importDefault(require("http"));
 const server = http_1.default.createServer(app);
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-app.use(express_1.default.static("../../frontend/dist"));
+app.use(express_1.default.json());
+app.use(express_1.default.static("public"));
 app.get("/chat", (_req, res) => {
     res.redirect("/");
+});
+app.use((_req, res, next) => {
+    if (res.status(404)) {
+        res.redirect("/");
+    }
+    else {
+        next();
+    }
 });
 exports.default = server;

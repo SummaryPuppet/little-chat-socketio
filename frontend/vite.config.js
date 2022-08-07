@@ -8,10 +8,6 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      workbox: {
-        clientsClain: true,
-        skipWaiting: true,
-      },
       manifest: {
         name: "Chat by SummaryPuppet",
         short_name: "Chat",

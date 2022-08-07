@@ -11,9 +11,9 @@ export const useSocket = () => {
   return context;
 };
 
-const URL = import.meta.env.VITE_SOCKETIO_URL || "/";
-const socket = io(URL);
-// const socket = io("/")
+// const URL = import.meta.env.VITE_SOCKETIO_URL || "/";
+// const socket = io(URL);
+const socket = io("/")
 
 export const SocketContextProvider = ({ children }) => {
   const [isConnected, setIsConnected] = useState(socket.connected);
