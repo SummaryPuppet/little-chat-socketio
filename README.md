@@ -1,5 +1,8 @@
 # Chat React and node with socket.io
 
+Chat socket.io
+[Link the server running](https://socketio-summarypuppet.herokuapp.com/)
+
 ## Develoment setup
 
 First, clone the repo and cd into the project:
